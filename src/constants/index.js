@@ -3,80 +3,81 @@ export const servicesData = [
   {
     title: "FullStack Development",
     description:
-      "Your business deserves a fast, secure, and future-proof digital foundation. I develop custom web apps with clean architecture, optimized databases, and seamless integrations—ensuring reliability at every layer.",
+      "Your business deserves a fast, secure, and future-proof digital foundation. I build custom web applications with clean architecture, optimized databases, and seamless integrations—ensuring reliability at every layer.",
     items: [
       {
         title: "Backend Engineering",
-        description: "(REST/GraphQL APIs, Microservices, Auth Systems)",
+        description: "(REST/GraphQL APIs, Authentication, Business Logic)",
       },
       {
         title: "Frontend Excellence",
-        description: "(React, Vue, TypeScript, Interactive UI/UX)",
+        description: "(React, TypeScript, Interactive & Responsive UI/UX)",
       },
       {
         title: "Database Design",
-        description: "(SQL/NoSQL Optimization, Scalable Structures)",
+        description: "(SQL/NoSQL, Optimization, Scalable Structures)",
       },
     ],
   },
   {
-    title: "DevOps & Cloud Solutions",
+    title: "Performance & Optimization",
     description:
-      "Deploying software shouldn't be a gamble. I automate infrastructure, enforce security, and leverage cloud platforms (AWS/Azure) to keep your app running smoothly—24/7, at any scale.",
+      "Fast and smooth experiences keep users engaged. I optimize web apps to ensure high performance, reduced load times, and scalability for growing businesses.",
     items: [
-      {
-        title: "CI/CD Pipelines",
-        description: "(GitHub Actions, Docker, Kubernetes)",
-      },
-      {
-        title: "Server Management ",
-        description: "(Linux, Nginx, Load Balancing)",
-      },
       {
         title: "Performance Tuning",
-        description: "(Caching, Compression, Lighthouse 90+ Scores)",
-      },
-    ],
-  },
-  {
-    title: "Security & Optimization",
-    description:
-      "Slow or hacked apps destroy trust. I harden security (XSS/SQLI protection, OAuth) and optimize bottlenecks so your app stays fast, safe, and scalable as you grow.",
-    items: [
-      {
-        title: "Code Audits",
-        description: "(Refactoring, Tech Debt Cleanup)",
+        description: "(Caching, Code Splitting, Lighthouse 90+ Scores)",
       },
       {
-        title: "Pen Testing",
-        description: "(Vulnerability Assessments)",
-      },
-      {
-        title: "SEO Tech Stack",
+        title: "SEO Optimization",
         description: "(SSR, Metadata, Structured Data)",
       },
+      {
+        title: "Code Quality",
+        description: "(Refactoring, Tech Debt Cleanup, Best Practices)",
+      },
     ],
   },
   {
-    title: "Web & Mobile Apps",
+    title: "Security & Reliability",
     description:
-      "A clunky interface can sink even the best ideas. I craft responsive, pixel perfect web and mobile apps (React Native/Flutter) that users love—bridging design and functionality seamlessly.",
+      "Secure applications build trust. I implement modern security practices, protect against vulnerabilities, and ensure your app runs safely and reliably.",
     items: [
       {
-        title: "Cross-Platform Apps",
-        description: "(Single codebase for iOS/Android/Web)",
+        title: "Authentication & Authorization",
+        description: "(JWT, OAuth, Role-Based Access)",
       },
       {
-        title: "PWAs",
-        description: "(Offline mode, Push Notifications)",
+        title: "App Security",
+        description: "(XSS/SQL Injection Protection, HTTPS, Validation)",
       },
       {
-        title: "E-Commerce",
-        description: "(Checkout flows, Payment Gateways, Inventory APIs)",
+        title: "Testing & Debugging",
+        description: "(Unit/Integration Tests, Bug Fixes)",
+      },
+    ],
+  },
+  {
+    title: "Custom Web Solutions",
+    description:
+      "Every business has unique needs. I develop tailored solutions—from e-commerce platforms to dashboards—ensuring seamless functionality and great user experience.",
+    items: [
+      {
+        title: "E-Commerce Development",
+        description: "(Checkout Flows, Payment Integration, Inventory APIs)",
+      },
+      {
+        title: "Progressive Web Apps",
+        description: "(Offline Mode, Push Notifications)",
+      },
+      {
+        title: "Business Dashboards",
+        description: "(Admin Panels, Analytics, Real-Time Data)",
       },
     ],
   },
 ];
+
 export const projects = [
   {
     id: 1,
