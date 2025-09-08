@@ -1,22 +1,20 @@
-import { useRef } from "react";
 import React from "react";
+import { useRef } from "react";
+import AnimatedHeaderSection from "../components/AnimatedHeaderSection";
+import { AnimatedTextLines } from "../components/AnimatedTextLines";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import AnimatedHeaderSection from "../components/AnimatedHeaderSection";
-import AnimatedTextLines from "../components/AnimatedTextLines";
 
 const About = () => {
   const text = `Passionate about clean architecture
     I build scalable, high-performance solutions
     from prototype to production`;
-  const aboutText = `Obsessed with crafting seamless digital experiences—from pixel-perfect React UIs to scalable Node.js/Express backends and optimized databases. Every line of code is a promise: performance, reliability, and user-first design.
-
-When I’m not shipping:
-⚡️ Building side projects & open-sourcing tools for devs
-📚 Sharing knowledge through blogs & tutorials
-🧩 Solving complex coding challenges (DSA + system design)
-🌍 Exploring new tech stacks & contributing to the dev community`;
-
+  const aboutText = `Obsessed with building fast, intuitive apps—from pixel-perfect React UIs to bulletproof serverless backends. Every line of code is a promise: quality that users feel.
+  When I’m not shipping:
+⚡️ Experimenting with new tech stacks & side projects 
+📚 Sharing coding insights on Linkedin to help others grow  
+☕ Fueling ideas over coffee and late-night debugging sessions  
+🎶 Jamming to music while deploying apps to the cloud`;
   const imgRef = useRef(null);
   useGSAP(() => {
     gsap.to("#about", {

@@ -1,7 +1,8 @@
 import { Icon } from "@iconify/react/dist/iconify.js";
 import gsap from "gsap";
 import { Observer } from "gsap/all";
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
+import React from "react";
 gsap.registerPlugin(Observer);
 const Marquee = ({
   items,

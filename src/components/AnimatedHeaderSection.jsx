@@ -1,20 +1,24 @@
 import React from "react";
 import { useRef } from "react";
+
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import AnimatedTextLines from "./AnimatedTextLines";
+import { AnimatedTextLines } from "./AnimatedTextLines";
 const AnimatedHeaderSection = ({
   subTitle,
   title,
   text,
   textColor,
   withScrollTrigger = false,
+  shouldAnimate = true,
 }) => {
   const contextRef = useRef(null);
   const headerRef = useRef(null);
   const shouldSplitTitle = title.includes(" ");
   const titleParts = shouldSplitTitle ? title.split(" ") : [title];
   useGSAP(() => {
+    if (!shouldAnimate) return;
+
     const tl = gsap.timeline({
       scrollTrigger: withScrollTrigger
         ? {
@@ -37,10 +41,10 @@ const AnimatedHeaderSection = ({
       },
       "<+0.2"
     );
-  }, []);
+  }, [shouldAnimate]);
   return (
     <div ref={contextRef}>
-      <div style={{ clipPath: "polygon(0 0, 110% 0, 110% 110%, 0% 110%)" }}>
+      <div style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}>
         <div
           ref={headerRef}
           className="flex flex-col justify-center gap-12 pt-16 sm:gap-16"
@@ -50,7 +54,7 @@ const AnimatedHeaderSection = ({
           >
             {subTitle}
           </p>
-          <div className="px-10 mb-1.5 md:mb-3">
+          <div className="px-10">
             <h1
               className={`flex flex-col gap-12 uppercase banner-text-responsive sm:gap-16 md:block ${textColor}`}
             >
@@ -67,6 +71,7 @@ const AnimatedHeaderSection = ({
           <AnimatedTextLines
             text={text}
             className={`font-light uppercase value-text-responsive ${textColor}`}
+            shouldAnimate={shouldAnimate}
           />
         </div>
       </div>

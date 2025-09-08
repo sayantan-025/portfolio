@@ -1,10 +1,10 @@
-import React from "react";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import AnimatedHeaderSection from "../components/AnimatedHeaderSection";
 import { projects } from "../constants";
 import { useRef, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import React from "react";
 
 const Works = () => {
   const overlayRefs = useRef([]);
@@ -114,8 +114,11 @@ const Works = () => {
         onMouseMove={handleMouseMove}
       >
         {projects.map((project, index) => (
-          <div
+          <a
             key={project.id}
+            href={project.href}
+            target="_blank"
+            rel="noopener noreferrer"
             id="project"
             className="relative flex flex-col gap-1 py-5 cursor-pointer group md:gap-0"
             onMouseEnter={() => handleMouseEnter(index)}
@@ -126,7 +129,7 @@ const Works = () => {
               ref={(el) => {
                 overlayRefs.current[index] = el;
               }}
-              className="absolute inset-0 hidden md:block duration-200 bg-black -z-10 clip-path"
+              className="absolute inset-0 hidden md:block duration-200 bg-black -z-10 clip-path pointer-events-none"
             />
 
             {/* title */}
@@ -136,9 +139,11 @@ const Works = () => {
               </h2>
               <Icon icon="lucide:arrow-up-right" className="md:size-6 size-5" />
             </div>
+
             {/* divider */}
             <div className="w-full h-0.5 bg-black/80" />
-            {/* framework */}
+
+            {/* frameworks */}
             <div className="flex px-10 text-xs leading-loose uppercase transtion-all duration-500 md:text-sm gap-x-5 md:group-hover:px-12">
               {project.frameworks.map((framework) => (
                 <p
@@ -149,6 +154,7 @@ const Works = () => {
                 </p>
               ))}
             </div>
+
             {/* mobile preview image */}
             <div className="relative flex items-center justify-center px-10 md:hidden h-[400px]">
               <img
@@ -162,9 +168,10 @@ const Works = () => {
                 className="absolute bg-center px-14 rounded-xl"
               />
             </div>
-          </div>
+          </a>
         ))}
-        {/* desktop Flaoting preview image */}
+
+        {/* desktop Floating preview image */}
         <div
           ref={previewRef}
           className="fixed -top-2/6 left-0 z-50 overflow-hidden border-8 border-black pointer-events-none w-[960px] md:block hidden opacity-0"

@@ -1,8 +1,8 @@
-import React from "react";
 import { useRef } from "react";
 import Marquee from "../components/Marquee";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import React from "react";
 
 const ContactSummary = () => {
   const containerRef = useRef(null);

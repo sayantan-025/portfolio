@@ -1,10 +1,10 @@
-import React from "react";
 import { useRef } from "react";
 import AnimatedHeaderSection from "../components/AnimatedHeaderSection";
 import { servicesData } from "../constants";
 import { useMediaQuery } from "react-responsive";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import React from "react";
 const Services = () => {
   const text = `I build secure, high-performance full-stack apps
     with smooth UX to drive growth 

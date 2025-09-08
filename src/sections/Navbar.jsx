@@ -4,7 +4,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { Link } from "react-scroll";
 
-const Navbar = () => {
+const Navbar = ({ preloaderComplete = true }) => {
   const navRef = useRef(null);
   const linksRef = useRef([]);
   const contactRef = useRef(null);
@@ -15,6 +15,8 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [showBurger, setShowBurger] = useState(true);
   useGSAP(() => {
+    if (!preloaderComplete) return;
+
     gsap.set(navRef.current, { xPercent: 100 });
     gsap.set([linksRef.current, contactRef.current], {
       autoAlpha: 0,
@@ -68,7 +70,7 @@ const Navbar = () => {
         },
         "<"
       );
-  }, []);
+  }, [preloaderComplete]);
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
@@ -95,6 +97,11 @@ const Navbar = () => {
     }
     setIsOpen(!isOpen);
   };
+  // Don't render navbar during preloading
+  if (!preloaderComplete) {
+    return null;
+  }
+
   return (
     <>
       <nav
@@ -125,7 +132,7 @@ const Navbar = () => {
           <div className="font-light">
             <p className="tracking-wider text-white/50">E-mail</p>
             <p className="text-xl tracking-widest lowercase text-pretty">
-              JohnDoe@gmail.com
+              sayantanbera25@gmail.com
             </p>
           </div>
           <div className="font-light">
