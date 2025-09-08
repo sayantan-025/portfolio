@@ -66,6 +66,7 @@ const Contact = () => {
                     key={index}
                     href={social.href}
                     className="text-xs leading-loose tracking-wides uppercase md:text-sm hover:text-white/80 transition-colors duration-200"
+                    target="_blank"
                   >
                     {"{ "}
                     {social.name}
