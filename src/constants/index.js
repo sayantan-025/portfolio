@@ -89,11 +89,9 @@ export const projects = [
     bgImage: "/assets/backgrounds/blanket.jpg",
     frameworks: [
       { id: 1, name: "Next.js" },
-      { id: 2, name: "Typescript" },
-      { id: 3, name: "Supabase" },
-      { id: 4, name: "Vapi" },
-      { id: 5, name: "Tailwind CSS" },
-      { id: 6, name: "Clerk" },
+      { id: 2, name: "Supabase" },
+      { id: 3, name: "Vapi" },
+      { id: 4, name: "Tailwind CSS" },
     ],
   },
   {
@@ -108,8 +106,6 @@ export const projects = [
       { id: 1, name: "React" },
       { id: 2, name: "Tailwind CSS" },
       { id: 3, name: "Supabase" },
-      { id: 4, name: "Clerk" },
-      { id: 5, name: "Shadcn UI" },
     ],
   },
 ];

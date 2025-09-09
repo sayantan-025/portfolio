@@ -34,13 +34,19 @@ const ContactSummary = () => {
       },
     });
   }, []);
+
   return (
     <section
       ref={containerRef}
-      className="flex flex-col items-center justify-between min-h-screen gap-12 mt-16"
+      className="flex flex-col items-center justify-between min-h-screen gap-12 mt-16 overflow-x-hidden"
     >
-      <Marquee items={items} />
-      <div className="overflow-hidden font-light text-center contact-text-responsive">
+      {/* top marquee */}
+      <div className="w-full overflow-hidden">
+        <Marquee items={items} />
+      </div>
+
+      {/* center text */}
+      <div className="overflow-hidden font-light text-center contact-text-responsive px-4">
         <p>
           “ Let’s build a <br />
           <span className="font-normal">memorable</span> &{" "}
@@ -48,13 +54,17 @@ const ContactSummary = () => {
           web application <span className="text-gold">together</span> “
         </p>
       </div>
-      <Marquee
-        items={items2}
-        reverse={true}
-        className="text-black bg-transparent border-y-2"
-        iconClassName="stroke-gold stroke-2 text-primary"
-        icon="material-symbols-light:square"
-      />
+
+      {/* bottom marquee */}
+      <div className="w-full overflow-hidden">
+        <Marquee
+          items={items2}
+          reverse={true}
+          className="text-black bg-transparent border-y-2"
+          iconClassName="stroke-gold stroke-2 text-primary"
+          icon="material-symbols-light:square"
+        />
+      </div>
     </section>
   );
 };

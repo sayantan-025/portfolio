@@ -87,6 +87,7 @@
   font-style: italic;
   font-display: swap;
 }
+
 @theme {
   --color-primary: #e5e5e0;
   --color-DarkLava: #393632;
@@ -104,13 +105,6 @@
       transform: translateX(calc(-100% - var(--gap)));
     }
   }
-}
-
-html,
-body {
-  width: 100%;
-  max-width: 100vw;
-  overflow-x: hidden;
 }
 
 body {

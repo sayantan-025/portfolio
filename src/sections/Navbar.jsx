@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { socials } from "../constants";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
@@ -13,7 +13,7 @@ const Navbar = ({ preloaderComplete = true }) => {
   const tl = useRef(null);
   const iconTl = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
-  const [showBurger, setShowBurger] = useState(true);
+
   useGSAP(() => {
     if (!preloaderComplete) return;
 
@@ -72,21 +72,6 @@ const Navbar = ({ preloaderComplete = true }) => {
       );
   }, [preloaderComplete]);
 
-  useEffect(() => {
-    let lastScrollY = window.scrollY;
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-
-      setShowBurger(currentScrollY <= lastScrollY || currentScrollY < 10);
-
-      lastScrollY = currentScrollY;
-    };
-    window.addEventListener("scroll", handleScroll, {
-      passive: true,
-    });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   const toggleMenu = () => {
     if (isOpen) {
       tl.current.reverse();
@@ -97,7 +82,7 @@ const Navbar = ({ preloaderComplete = true }) => {
     }
     setIsOpen(!isOpen);
   };
-  // Don't render navbar during preloading
+
   if (!preloaderComplete) {
     return null;
   }
@@ -106,7 +91,7 @@ const Navbar = ({ preloaderComplete = true }) => {
     <>
       <nav
         ref={navRef}
-        className="fixed z-50 flex flex-col justify-between w-full h-full px-10 uppercase bg-black text-white/80 py-28 gap-y-10 md:w-1/2 md:left-1/2"
+        className="fixed z-50 flex flex-col justify-between w-full h-full px-10 uppercase bg-black text-white/80 py-28 gap-y-10 md:w-1/2 md:left-1/2 font-[var(--font-amiamie)]"
       >
         <div className="flex flex-col text-5xl gap-y-2 md:text-6xl lg:text-8xl">
           {["home", "services", "about", "work", "contact"].map(
@@ -157,11 +142,7 @@ const Navbar = ({ preloaderComplete = true }) => {
       <div
         className="fixed z-50 flex flex-col items-center justify-center gap-1 transition-all duration-300 bg-black rounded-full cursor-pointer w-14 h-14 md:w-20 md:h-20 top-4 right-10"
         onClick={toggleMenu}
-        style={
-          showBurger
-            ? { clipPath: "circle(50% at 50% 50%)" }
-            : { clipPath: "circle(0% at 50% 50%)" }
-        }
+        style={{ clipPath: "circle(50% at 50% 50%)" }}
       >
         <span
           ref={topLineRef}

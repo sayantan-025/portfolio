@@ -1,24 +1,20 @@
 import React from "react";
 import { useRef } from "react";
-
+import { AnimatedTextLines } from "../components/AnimatedTextLines";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { AnimatedTextLines } from "./AnimatedTextLines";
 const AnimatedHeaderSection = ({
   subTitle,
   title,
   text,
   textColor,
   withScrollTrigger = false,
-  shouldAnimate = true,
 }) => {
   const contextRef = useRef(null);
   const headerRef = useRef(null);
   const shouldSplitTitle = title.includes(" ");
   const titleParts = shouldSplitTitle ? title.split(" ") : [title];
   useGSAP(() => {
-    if (!shouldAnimate) return;
-
     const tl = gsap.timeline({
       scrollTrigger: withScrollTrigger
         ? {
@@ -41,7 +37,7 @@ const AnimatedHeaderSection = ({
       },
       "<+0.2"
     );
-  }, [shouldAnimate]);
+  }, []);
   return (
     <div ref={contextRef}>
       <div style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}>
@@ -66,12 +62,11 @@ const AnimatedHeaderSection = ({
         </div>
       </div>
       <div className={`relative px-10 ${textColor}`}>
-        <div className="absolute inset-x-0 border-t-2" />
+        <div className="absolute inset-x-0 border-2" />
         <div className="py-12 sm:py-16 text-end">
           <AnimatedTextLines
             text={text}
             className={`font-light uppercase value-text-responsive ${textColor}`}
-            shouldAnimate={shouldAnimate}
           />
         </div>
       </div>
