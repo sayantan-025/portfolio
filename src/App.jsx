@@ -25,7 +25,7 @@ const App = () => {
   return (
     <ReactLenis
       root
-      className="relative w-screen min-h-screen overflow-x-auto"
+      className="relative w-full min-h-screen overflow-x-hidden"
       options={{
         lerp: 0.07,
         smoothWheel: true,

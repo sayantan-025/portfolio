@@ -42,7 +42,7 @@ results driven webs/apps`;
     <section
       ref={heroRef}
       id="home"
-      className="flex flex-col justify-end min-h-screen"
+      className="flex flex-col justify-end min-h-screen "
       style={{ opacity: 0 }}
     >
       <AnimatedHeaderSection
@@ -55,7 +55,7 @@ results driven webs/apps`;
       />
       <figure
         className="absolute inset-0 -z-50"
-        style={{ width: "100vw", height: "100vh" }}
+        style={{ width: "100%", height: "100%" }}
       >
         <Canvas
           shadows

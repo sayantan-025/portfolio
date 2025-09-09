@@ -9,12 +9,17 @@ const AnimatedHeaderSection = ({
   text,
   textColor,
   withScrollTrigger = false,
+  shouldAnimate = false,
 }) => {
   const contextRef = useRef(null);
   const headerRef = useRef(null);
   const shouldSplitTitle = title.includes(" ");
   const titleParts = shouldSplitTitle ? title.split(" ") : [title];
   useGSAP(() => {
+    // For scroll-triggered sections, animate immediately on mount.
+    // For non-scroll sections (e.g., Hero), wait until shouldAnimate is true.
+    if (!withScrollTrigger && !shouldAnimate) return;
+
     const tl = gsap.timeline({
       scrollTrigger: withScrollTrigger
         ? {
@@ -22,11 +27,13 @@ const AnimatedHeaderSection = ({
           }
         : undefined,
     });
+
     tl.from(contextRef.current, {
       y: "50vh",
       duration: 1,
       ease: "circ.out",
     });
+
     tl.from(
       headerRef.current,
       {
@@ -37,7 +44,7 @@ const AnimatedHeaderSection = ({
       },
       "<+0.2"
     );
-  }, []);
+  }, [withScrollTrigger, shouldAnimate]);
   return (
     <div ref={contextRef}>
       <div style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}>
